@@ -5,11 +5,12 @@ using System.Text;
 
 namespace aspnetcoremaster.core.Model
 {
-    public class CustomerModel :  BaseModel 
+    public class ProductModel : BaseModel
     {
         public string Name { get; set; }
-        public string Mobile { get; set; }
-        public string Email { get; set; }
-        public string Address { get; set; }
+        public float Price { get; set; }
+        public string Description { get; set; }
+
+
     }
 }
