@@ -6,9 +6,9 @@ using System.Text;
 
 namespace aspnetcoremaster.data.AppDbContext
 {
-    public class AppDbContext : DbContext
+    public class AppDataContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDataContext(DbContextOptions options) : base(options)
         {
         }
         public DbSet<CustomerModel> Customer { get; set; }
