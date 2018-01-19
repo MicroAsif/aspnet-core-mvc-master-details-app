@@ -1,6 +1,7 @@
 ﻿using aspnetcoremaster.core.Model.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -13,15 +14,17 @@ namespace aspnetcoremaster.core.Model
         [Required]
         public int Quantity { get; set; }
         [Required]
+        [DisplayName("Total Price")]
         public float TotalPrice { get; set; }
-        public string ProductName { get; set; }
+        [DisplayName("Price")]
+        public float Price { get; set; }
 
 
-        [ForeignKey("ProductId")]
+        [ForeignKey("ProductModel")]
         public int ProductId { get; set; }
         public ProductModel ProductModel { get; set; }
 
-        [ForeignKey("InventoryId")]
+        [ForeignKey("InventoryModel")]
         public int InventoryId { get; set; }
         public InventoryModel InventoryModel { get; set; }
     }

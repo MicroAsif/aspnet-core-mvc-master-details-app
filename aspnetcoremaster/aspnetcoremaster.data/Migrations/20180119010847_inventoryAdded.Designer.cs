@@ -11,9 +11,10 @@ using System;
 namespace aspnetcoremaster.data.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    partial class AppDataContextModelSnapshot : ModelSnapshot
+    [Migration("20180119010847_inventoryAdded")]
+    partial class inventoryAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,6 +30,8 @@ namespace aspnetcoremaster.data.Migrations
                         .IsRequired();
 
                     b.Property<DateTime>("CreatedDate");
+
+                    b.Property<bool>("IsDelete");
 
                     b.Property<DateTime>("UpdatedDate");
 
@@ -48,6 +51,8 @@ namespace aspnetcoremaster.data.Migrations
 
                     b.Property<string>("Email");
 
+                    b.Property<bool>("IsDelete");
+
                     b.Property<string>("Mobile");
 
                     b.Property<string>("Name")
@@ -58,63 +63,6 @@ namespace aspnetcoremaster.data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customer");
-                });
-
-            modelBuilder.Entity("aspnetcoremaster.core.Model.InventoryItemModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<int>("InventoryId");
-
-                    b.Property<float>("Price");
-
-                    b.Property<int>("ProductId");
-
-                    b.Property<int>("Quantity");
-
-                    b.Property<float>("TotalPrice");
-
-                    b.Property<DateTime>("UpdatedDate");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InventoryId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("InventoryItem");
-                });
-
-            modelBuilder.Entity("aspnetcoremaster.core.Model.InventoryModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<float>("ChangeAmount");
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<int>("CustomerId");
-
-                    b.Property<float>("GivenAmount");
-
-                    b.Property<string>("InventoryCode")
-                        .IsRequired();
-
-                    b.Property<string>("Status");
-
-                    b.Property<float>("TotalAmount");
-
-                    b.Property<DateTime>("UpdatedDate");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("Inventory");
                 });
 
             modelBuilder.Entity("aspnetcoremaster.core.Model.ProductModel", b =>
@@ -128,6 +76,8 @@ namespace aspnetcoremaster.data.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<bool>("IsDelete");
+
                     b.Property<string>("Name")
                         .IsRequired();
 
@@ -140,27 +90,6 @@ namespace aspnetcoremaster.data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("aspnetcoremaster.core.Model.InventoryItemModel", b =>
-                {
-                    b.HasOne("aspnetcoremaster.core.Model.InventoryModel", "InventoryModel")
-                        .WithMany()
-                        .HasForeignKey("InventoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("aspnetcoremaster.core.Model.ProductModel", "ProductModel")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("aspnetcoremaster.core.Model.InventoryModel", b =>
-                {
-                    b.HasOne("aspnetcoremaster.core.Model.CustomerModel", "CustomerModel")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("aspnetcoremaster.core.Model.ProductModel", b =>

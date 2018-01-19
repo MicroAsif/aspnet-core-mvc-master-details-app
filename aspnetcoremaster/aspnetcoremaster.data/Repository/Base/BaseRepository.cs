@@ -22,7 +22,7 @@ namespace aspnetcoremaster.data.Repository.Base
         }
         public IEnumerable<T> All()
         {
-            return entities.AsEnumerable().Where(x => !x.IsDelete);
+            return entities.AsEnumerable();
         }
 
         public void Delete(T entity)

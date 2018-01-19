@@ -3806,6 +3806,8 @@
       },
       "aspnetcoremaster.data/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "2.0.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.1",
           "aspnetcoremaster.core": "1.0.0"
         },
         "runtime": {

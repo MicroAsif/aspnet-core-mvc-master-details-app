@@ -21,7 +21,7 @@ namespace aspnetcoremaster.core.Model
         public float GivenAmount { get; set; }
         public float ChangeAmount { get; set; }
 
-        [ForeignKey("CustomerId")]
+        [ForeignKey("CustomerModel")]
         public int CustomerId { get; set; }
         public CustomerModel CustomerModel { get; set; }
     }

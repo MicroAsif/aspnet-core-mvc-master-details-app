@@ -11,9 +11,10 @@ using System;
 namespace aspnetcoremaster.data.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    partial class AppDataContextModelSnapshot : ModelSnapshot
+    [Migration("20180119012142_updatedInventory")]
+    partial class updatedInventory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,6 +30,8 @@ namespace aspnetcoremaster.data.Migrations
                         .IsRequired();
 
                     b.Property<DateTime>("CreatedDate");
+
+                    b.Property<bool>("IsDelete");
 
                     b.Property<DateTime>("UpdatedDate");
 
@@ -47,6 +50,8 @@ namespace aspnetcoremaster.data.Migrations
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<string>("Email");
+
+                    b.Property<bool>("IsDelete");
 
                     b.Property<string>("Mobile");
 
@@ -68,6 +73,8 @@ namespace aspnetcoremaster.data.Migrations
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<int>("InventoryId");
+
+                    b.Property<bool>("IsDelete");
 
                     b.Property<float>("Price");
 
@@ -104,6 +111,8 @@ namespace aspnetcoremaster.data.Migrations
                     b.Property<string>("InventoryCode")
                         .IsRequired();
 
+                    b.Property<bool>("IsDelete");
+
                     b.Property<string>("Status");
 
                     b.Property<float>("TotalAmount");
@@ -127,6 +136,8 @@ namespace aspnetcoremaster.data.Migrations
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<string>("Description");
+
+                    b.Property<bool>("IsDelete");
 
                     b.Property<string>("Name")
                         .IsRequired();
