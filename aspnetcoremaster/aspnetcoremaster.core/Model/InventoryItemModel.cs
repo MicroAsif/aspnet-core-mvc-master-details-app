@@ -1,13 +1,18 @@
-﻿using System;
+﻿using aspnetcoremaster.core.Model.Base;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace aspnetcoremaster.core.Model
 {
-    public class InventoryItem
+    [Table("InventoryItem")]
+    public class InventoryItemModel : BaseModel
     {
+        [Required]
         public int Quantity { get; set; }
+        [Required]
         public float TotalPrice { get; set; }
         public string ProductName { get; set; }
 

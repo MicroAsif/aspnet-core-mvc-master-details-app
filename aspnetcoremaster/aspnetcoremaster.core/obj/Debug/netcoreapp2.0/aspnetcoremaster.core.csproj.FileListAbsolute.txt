@@ -1,0 +1,9 @@
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\bin\Debug\netcoreapp2.0\aspnetcoremaster.core.deps.json
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\bin\Debug\netcoreapp2.0\aspnetcoremaster.core.dll
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\bin\Debug\netcoreapp2.0\aspnetcoremaster.core.pdb
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.csprojResolveAssemblyReference.cache
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.csproj.CoreCompileInputs.cache
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.AssemblyInfoInputs.cache
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.AssemblyInfo.cs
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.dll
+C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.pdb

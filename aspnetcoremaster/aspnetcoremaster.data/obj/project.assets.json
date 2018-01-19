@@ -680,7 +680,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\microasif\\.nuget\\packages\\": {},
+    "C:\\Users\\Dell\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -689,17 +689,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\dev\\aspnet-core-master-details\\aspnetcoremaster\\aspnetcoremaster.data\\aspnetcoremaster.data.csproj",
+      "projectUniqueName": "C:\\dev\\aspnet-core-mvc-master-details-app\\aspnetcoremaster\\aspnetcoremaster.data\\aspnetcoremaster.data.csproj",
       "projectName": "aspnetcoremaster.data",
-      "projectPath": "C:\\dev\\aspnet-core-master-details\\aspnetcoremaster\\aspnetcoremaster.data\\aspnetcoremaster.data.csproj",
-      "packagesPath": "C:\\Users\\microasif\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\aspnet-core-master-details\\aspnetcoremaster\\aspnetcoremaster.data\\obj\\",
+      "projectPath": "C:\\dev\\aspnet-core-mvc-master-details-app\\aspnetcoremaster\\aspnetcoremaster.data\\aspnetcoremaster.data.csproj",
+      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\aspnet-core-mvc-master-details-app\\aspnetcoremaster\\aspnetcoremaster.data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\microasif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -707,13 +707,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\Dell\\.dotnet\\NuGetFallbackFolder": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\dev\\aspnet-core-master-details\\aspnetcoremaster\\aspnetcoremaster.core\\aspnetcoremaster.core.csproj": {
-              "projectPath": "C:\\dev\\aspnet-core-master-details\\aspnetcoremaster\\aspnetcoremaster.core\\aspnetcoremaster.core.csproj"
+            "C:\\dev\\aspnet-core-mvc-master-details-app\\aspnetcoremaster\\aspnetcoremaster.core\\aspnetcoremaster.core.csproj": {
+              "projectPath": "C:\\dev\\aspnet-core-mvc-master-details-app\\aspnetcoremaster\\aspnetcoremaster.core\\aspnetcoremaster.core.csproj"
             }
           }
         }
