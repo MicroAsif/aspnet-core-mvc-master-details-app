@@ -13,6 +13,7 @@ namespace aspnetcoremaster.data.AppDbContext
         }
         public DbSet<CustomerModel> Customer { get; set; }
         public DbSet<ProductModel> Product { get; set; }
+        public DbSet<CategoryModel> Category { get; set; }
 
     }
 }
