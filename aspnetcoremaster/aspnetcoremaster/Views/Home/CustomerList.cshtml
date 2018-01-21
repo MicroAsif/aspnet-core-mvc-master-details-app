@@ -1,0 +1,55 @@
+﻿@model IEnumerable<aspnetcoremaster.core.Model.CustomerModel>
+
+    @{
+    ViewData["Title"] = "CustomerList";
+    }
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Customer List</h3>
+            </div>
+            <br />
+            <div class="box-body">
+                <table id="studentTable" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+
+                            <th> Customer Name </th>
+                            <th> Email </th>
+                            <th> Phone </th>
+                            <th> Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Mobile)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("DeleteNotes", "Teacher", new {noteId = item.Id})" onclick="return confirm('Are you sure you want to Remove this Note from your class  ?');" class="btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

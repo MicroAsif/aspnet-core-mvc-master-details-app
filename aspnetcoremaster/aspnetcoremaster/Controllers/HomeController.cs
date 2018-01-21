@@ -12,10 +12,15 @@ namespace aspnetcoremaster.Controllers
     public class HomeController : Controller
     {
         private readonly IProductRepository productRepository;
+        private readonly ICategoryRepository categoryRepository;
+        private readonly ICustomerRepository customerRepository;
 
-        public HomeController(IProductRepository productRepository)
+        public HomeController(IProductRepository productRepository, ICategoryRepository categoryRepository,
+                              ICustomerRepository customerRepository )
         {
             this.productRepository = productRepository;
+            this.categoryRepository = categoryRepository;
+            this.customerRepository = customerRepository;
         }
         public IActionResult Index()
         {
@@ -37,6 +42,18 @@ namespace aspnetcoremaster.Controllers
             return View();
         }
 
+        public IActionResult CustomerList()
+        {
+            return View(customerRepository.All()); 
+        }
+        public IActionResult CategoryList()
+        {
+            return View(categoryRepository.All()); 
+        }
+        public IActionResult ProductList()
+        {
+            return View(productRepository.All());
+        }
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
