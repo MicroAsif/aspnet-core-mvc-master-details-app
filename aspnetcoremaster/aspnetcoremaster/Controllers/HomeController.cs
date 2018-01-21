@@ -5,11 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using aspnetcoremaster.Models;
+using aspnetcoremaster.core.Interface;
 
 namespace aspnetcoremaster.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IProductRepository productRepository;
+
+        public HomeController(IProductRepository productRepository)
+        {
+            this.productRepository = productRepository;
+        }
         public IActionResult Index()
         {
             return View();
@@ -19,7 +26,7 @@ namespace aspnetcoremaster.Controllers
         {
             ViewData["Message"] = "Your application description page.";
 
-            return View();
+            return View(productRepository.All());
         }
 
         public IActionResult Contact()
