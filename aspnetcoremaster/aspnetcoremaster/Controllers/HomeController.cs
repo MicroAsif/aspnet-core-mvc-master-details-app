@@ -26,7 +26,8 @@ namespace aspnetcoremaster.Controllers
         {
             ViewData["Message"] = "Your application description page.";
 
-            return View(productRepository.All());
+            ViewBag.products = productRepository.ProductForDropdownByCategory(6);
+            return View();
         }
 
         public IActionResult Contact()

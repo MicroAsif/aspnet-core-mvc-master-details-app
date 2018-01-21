@@ -1,4 +1,4 @@
-﻿@model IEnumerable<aspnetcoremaster.core.Model.ProductModel>
+﻿@model aspnetcoremaster.core.Model.ProductModel
 
 @{
     ViewData["Title"] = "About";
@@ -7,7 +7,24 @@
 <h3>@ViewData["Message"]</h3>
 
 
-@foreach(var p in Model)
+
+
+
+@*@foreach(var p in Model)
 {
     <p> @p.Name</p>
-}
+}*@
+
+
+
+    <div class="col-md-12">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8">
+                @Html.DropDownListFor(model => model.Id,
+                     new SelectList((IEnumerable<SelectListItem>)ViewBag.products, "Value", "Text"), "Select products",
+                     htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
