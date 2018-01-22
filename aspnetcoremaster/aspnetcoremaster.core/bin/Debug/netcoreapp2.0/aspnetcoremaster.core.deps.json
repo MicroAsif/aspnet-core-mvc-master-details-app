@@ -7,8 +7,16 @@
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "aspnetcoremaster.core/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.0.1.0"
+        },
         "runtime": {
           "aspnetcoremaster.core.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.ViewFeatures/2.0.1.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures.dll": {}
         }
       }
     }
@@ -16,6 +24,11 @@
   "libraries": {
     "aspnetcoremaster.core/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Mvc.ViewFeatures/2.0.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

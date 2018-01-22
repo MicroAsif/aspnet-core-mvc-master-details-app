@@ -11,3 +11,16 @@ C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.data
 C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.data\obj\Debug\netcoreapp2.0\aspnetcoremaster.data.pdb
 C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
 C:\dev\aspnet-core-mvc-master-details-app\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\aspnetcoremaster.data.deps.json
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\aspnetcoremaster.data.dll
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\aspnetcoremaster.data.pdb
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\aspnetcoremaster.core.dll
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\aspnetcoremaster.core.pdb
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\obj\Debug\netcoreapp2.0\aspnetcoremaster.data.csprojResolveAssemblyReference.cache
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\obj\Debug\netcoreapp2.0\aspnetcoremaster.data.csproj.CoreCompileInputs.cache
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\obj\Debug\netcoreapp2.0\aspnetcoremaster.data.AssemblyInfoInputs.cache
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\obj\Debug\netcoreapp2.0\aspnetcoremaster.data.AssemblyInfo.cs
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\obj\Debug\netcoreapp2.0\aspnetcoremaster.data.dll
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.data\obj\Debug\netcoreapp2.0\aspnetcoremaster.data.pdb

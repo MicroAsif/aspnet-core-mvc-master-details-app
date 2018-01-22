@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using aspnetcoremaster.Models;
 using aspnetcoremaster.core.Interface;
+using aspnetcoremaster.core.Model;
 
 namespace aspnetcoremaster.Controllers
 {
@@ -14,31 +15,30 @@ namespace aspnetcoremaster.Controllers
         private readonly IProductRepository productRepository;
         private readonly ICategoryRepository categoryRepository;
         private readonly ICustomerRepository customerRepository;
+        private readonly IInventoryRepository inventoryRepository;
 
         public HomeController(IProductRepository productRepository, ICategoryRepository categoryRepository,
-                              ICustomerRepository customerRepository )
+                              ICustomerRepository customerRepository, IInventoryRepository inventoryRepository)
         {
             this.productRepository = productRepository;
             this.categoryRepository = categoryRepository;
             this.customerRepository = customerRepository;
+            this.inventoryRepository = inventoryRepository;
         }
         public IActionResult Index()
         {
+            return View(inventoryRepository.All());
+        }
+        [HttpGet]
+        public ActionResult Order()
+        {
             return View();
         }
 
-        public IActionResult About()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Order(InventoryModel model)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            ViewBag.products = productRepository.ProductForDropdownByCategory(6);
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
