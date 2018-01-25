@@ -42,6 +42,11 @@ namespace aspnetcoremaster.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult Customers(string name)
+        {
+            return Json(customerRepository.All());
+        }
         public IActionResult CustomerList()
         {
             return View(customerRepository.All()); 

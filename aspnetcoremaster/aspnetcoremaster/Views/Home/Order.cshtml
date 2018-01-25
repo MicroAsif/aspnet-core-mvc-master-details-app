@@ -2,6 +2,13 @@
 @{
     ViewData["Title"] = "Order";
 }
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+
 <br />
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
@@ -31,7 +38,7 @@
         </div>
         <div class="col-xs-4">
             <label for="CustomerName">Customer Name</label>
-            @Html.Editor("CustomerName", new { htmlAttributes = new { @class = "form-control", @id = "attDate", @placeholder = "Customer Name" } })
+            @Html.Editor("CustomerName", new { htmlAttributes = new { @class = "form-control", @id = "CustomerName", @placeholder = "Customer Name" } })
         </div>
     </div>
 
@@ -67,7 +74,7 @@
 
 
     <div class="col-md-12">
-      
+
         <div class="col-md-2 col-md-offset-9">
             <label asp-for="TotalAmount">Total Amount</label>
             <input type="text" asp-for="TotalAmount" class="form-control" placeholder="Total Amount" />
@@ -92,4 +99,33 @@
     </div>
 </div>
 
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+            $("#CustomerName").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Home/Customers",
+                        type: "POST",
+                        dataType: "json",
+                        data: { name: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.Name, value: item.Name };
+                            }));
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: '',
+                    results: function (resultsCount) {
+
+                    }
+                }
+            });
+        })
+    </script>
+}
 
