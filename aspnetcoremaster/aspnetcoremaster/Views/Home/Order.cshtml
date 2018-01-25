@@ -2,19 +2,94 @@
 @{
     ViewData["Title"] = "Order";
 }
-<br/>
+<br />
 <div class="row">
-    <div class="col-md-12">
-
-
+    <div class="col-md-10 col-md-offset-1">
         <div class="col-md-4">
-            <input  type="text" asp-for="InventoryCode" class="form-control" placeholder="Inventory code" />
+            <label asp-for="InventoryCode">Inventory Code</label>
+            <input type="text" asp-for="InventoryCode" class="form-control" placeholder="Inventory code" />
             @Html.ValidationMessageFor(model => model.InventoryCode, "", new { @class = "text-danger" })
         </div>
         <div class="col-xs-4">
-            @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control", @id = "attDate", @placeholder = "Attendence date" } })
+            <label asp-for="CreatedDate">Inventory Date</label>
+            @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Inventory date" } })
             @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
         </div>
+        <div class="col-xs-4">
+            <label asp-for="InventoryCode">Inventory Status</label>
+            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @placeholder = "Inventory Status" } })
+            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1">
+        <br />
+        <div class="col-md-4">
+            <label asp-for="CustomerId">Customer Phone</label>
+            <input type="text" asp-for="CustomerId" class="form-control" placeholder="Customer Phone" />
+            @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-xs-4">
+            <label for="CustomerName">Customer Name</label>
+            @Html.Editor("CustomerName", new { htmlAttributes = new { @class = "form-control", @id = "attDate", @placeholder = "Customer Name" } })
+        </div>
+    </div>
+
+
+    <div class="col-md-4 col-md-offset-1">
+        <br />
+        <input type="button" value="Add Products" class="btn btn-success col-md-4 col-md-offset-1" />
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <br />
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Product Name</td>
+                    <td>Rate</td>
+                    <td>Quantity</td>
+                    <td>Amount</td>
+                    <td>Remove</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rice</td>
+                    <td>20</td>
+                    <td>2</td>
+                    <td>40</td>
+                    <td><input type="button" class="btn btn-danger btn-sm" />X</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="col-md-12">
+      
+        <div class="col-md-2 col-md-offset-9">
+            <label asp-for="TotalAmount">Total Amount</label>
+            <input type="text" asp-for="TotalAmount" class="form-control" placeholder="Total Amount" />
+            @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-2 col-md-offset-9">
+            <label asp-for="GivenAmount">Given Amount</label>
+            <input type="text" asp-for="GivenAmount" class="form-control" placeholder="Given Amount" />
+            @Html.ValidationMessageFor(model => model.GivenAmount, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="col-md-2 col-md-offset-9">
+            <label asp-for="ChangeAmount">Change Amount</label>
+            <input type="text" asp-for="ChangeAmount" class="form-control" placeholder="Change Amount" />
+            @Html.ValidationMessageFor(model => model.ChangeAmount, "", new { @class = "text-danger" })
+            <br />
+        </div>
+
+        <input type="submit" value="Save Order" class="btn btn-success col-md-2 col-md-offset-9" />
     </div>
 </div>
+
 
