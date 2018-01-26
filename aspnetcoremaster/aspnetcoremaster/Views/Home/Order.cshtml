@@ -45,7 +45,7 @@
 
     <div class="col-md-4 col-md-offset-1">
         <br />
-        <input type="button" value="Add Products" class="btn btn-success col-md-4 col-md-offset-1" />
+        <input type="button" value="Add Products" data-toggle="modal" data-target="#loginModal" class="btn btn-success col-md-4 col-md-offset-1" />
     </div>
     <div class="col-md-10 col-md-offset-1">
         <br />
@@ -74,7 +74,6 @@
 
 
     <div class="col-md-12">
-
         <div class="col-md-2 col-md-offset-9">
             <label asp-for="TotalAmount">Total Amount</label>
             <input type="text" asp-for="TotalAmount" class="form-control" placeholder="Total Amount" />
@@ -99,6 +98,56 @@
     </div>
 </div>
 
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="modal fade bs-example-modal-sm" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <h4 class="modal-header">Select Product</h4>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="col-md-3">
+                                <label class="control-label">Category</label>
+                                @Html.DropDownList("Category", new SelectList(string.Empty, "Value", "Text"), "select Product", new { @class = "form-control" })
+
+                                <div>
+                                    <label class="control-label">Description</label>
+                                    @Html.Editor("Description", new { htmlAttributes = new { @class = "form-control", id = "Description", @readonly = "readonly" } })
+
+                                    <label class="control-label">Price</label>
+                                    @Html.Editor("Price", new { htmlAttributes = new { @class = "form-control", id = "Price", @readonly = "readonly" } })
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+
+                                <label class="control-label">Product</label>
+                                @Html.DropDownList("Product", new SelectList(string.Empty, "Value", "Text"), "select Product", new { @class = "form-control" })
+
+                                <label class="control-label">Quantity</label>
+                                @Html.Editor("Quantity", new { htmlAttributes = new { @class = "form-control", id = "Quantity" } })
+
+                                <label class="control-label">Amount</label>
+                                @Html.Editor("Amount", new { htmlAttributes = new { @class = "form-control", id = "Amount", @readonly = "readonly" } })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a id="BtnAdd" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-plus"></span> Add
+                        </a>
+                        <a id="BtnClose" class="btn btn-danger" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-off"></span> Close
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts {
     <script>
         $(document).ready(function () {
@@ -112,7 +161,7 @@
                         data: { name: request.term },
                         success: function (data) {
                             response($.map(data, function (item) {
-                                return { label: item.Name, value: item.Name };
+                                return item;
                             }));
 
                         }
