@@ -47,10 +47,24 @@ namespace aspnetcoremaster.Controllers
         {
             return Json(customerRepository.All());
         }
+
+
+        public JsonResult GetCategories()
+        {
+            return Json(categoryRepository.All());
+        }
+        public JsonResult GetProducts(int categoryId=0)
+        {
+            if (categoryId ==0)
+                return Json(productRepository.All());
+            return Json(productRepository.All().Where(x => x.CategoryId == categoryId));
+        }
         public IActionResult CustomerList()
         {
             return View(customerRepository.All()); 
         }
+
+
         public IActionResult CategoryList()
         {
             return View(categoryRepository.All()); 

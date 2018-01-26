@@ -3,9 +3,6 @@
     ViewData["Title"] = "Order";
 }
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 
 
@@ -109,7 +106,7 @@
                         <div class="container">
                             <div class="col-md-3">
                                 <label class="control-label">Category</label>
-                                @Html.DropDownList("Category", new SelectList(string.Empty, "Value", "Text"), "select Product", new { @class = "form-control" })
+                                @Html.DropDownList("Category", new SelectList(string.Empty, "Value", "Text"), "select Product", new { @class = "form-control", id = "Category" })
 
                                 <div>
                                     <label class="control-label">Description</label>
@@ -123,7 +120,7 @@
                             <div class="col-md-3">
 
                                 <label class="control-label">Product</label>
-                                @Html.DropDownList("Product", new SelectList(string.Empty, "Value", "Text"), "select Product", new { @class = "form-control" })
+                                @Html.DropDownList("Product", new SelectList(string.Empty, "Value", "Text"), "select Product", new { @class = "form-control", id="Product" })
 
                                 <label class="control-label">Quantity</label>
                                 @Html.Editor("Quantity", new { htmlAttributes = new { @class = "form-control", id = "Quantity" } })
@@ -149,32 +146,43 @@
 </div>
 
 @section scripts {
-    <script>
-        $(document).ready(function () {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+      <script type="text/javascript">
+          $(document).ready(function () {
 
-            $("#CustomerName").autocomplete({
-                source: function (request, response) {
-                    $.ajax({
-                        url: "/Home/Customers",
-                        type: "POST",
-                        dataType: "json",
-                        data: { name: request.term },
-                        success: function (data) {
-                            response($.map(data, function (item) {
-                                return item;
-                            }));
 
-                        }
-                    })
-                },
-                messages: {
-                    noResults: '',
-                    results: function (resultsCount) {
+              //get categories
+              $.ajax({
+                  type: "GET",
+                  url: "/Home/GetCategories",
+                  datatype: "Json",
+                  success: function (data) {
+                      $.each(data, function (index, value) {
+                          console.log(value);
+                          $('#Category').append('<option value="' + value.categoryId + '">' + value.categoryName + '</option>');
+                      });
+                  }
+              });
 
-                    }
-                }
-            });
-        })
+
+              //get products
+              $.ajax({
+                  type: "GET",
+                  url: "/Home/GetProducts",
+                  datatype: "Json",
+                  success: function (data) {
+                      $.each(data, function (index, value) {
+                          console.log(value);
+                          $('#Product').append('<option value="' + value.id + '">' + value.name + '</option>');
+                      });
+                  }
+              });
+
+                    //$('#Product').select2();
+                })
+
+
     </script>
 }
 
