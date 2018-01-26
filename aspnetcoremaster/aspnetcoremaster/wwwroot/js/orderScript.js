@@ -1,4 +1,24 @@
 ﻿$(document).ready(function () {
+
+
+  
+    //get customer
+    $.ajax({
+        type: "GET",
+        url: "/Home/GetProducts",
+        datatype: "Json",
+        success: function (data) {
+            $.each(data, function (index, value) {
+                $("#Customer").select2();
+                $('#Customer').append('<option value="' + value.id + '">' + value.name + '</option>');
+            });
+        }
+    });
+
+    $("#Customer").select2({
+        multiple: false
+    });
+  
     //get categories
     $.ajax({
         type: "GET",
