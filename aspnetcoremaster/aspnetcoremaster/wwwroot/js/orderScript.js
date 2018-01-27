@@ -11,23 +11,25 @@
         var row = `<tr>
                     <td>${productId}</td>
                     <td>${productName}</td>
-                    <td>${price}</td>
+                    <td >${price}</td>
                     <td>${quantity}</td>
-                    <td>${amount}</td>
+                    <td class="price">${amount}</td>
                     <td>
-                        <a class="btn btn-danger btnDelete">
+                        <a class="btn btn-danger btn-sm btnDelete">
                             <span class="glyphicon glyphicon-trash"></span>
                         </a>
                     </td>
                 </tr>`;
 
         $('#Items').append(row);
-        console.log(row);
+        calculateSum();
+        clearValue();
     });
 
     //remove button click event
     $('#Items').on('click', '.btnDelete', function () {
         $(this).parents('tr').remove();
+        calculateSum();
     });
 
     //get customer
@@ -42,7 +44,6 @@
             });
         }
     });
-
 
     //customer details
     $("#Customer").select2({
@@ -106,13 +107,42 @@
     });
 
 
+    //total calculation
+    function calculateSum() {
+        var sum = 0;
+        // iterate through each td based on class and add the values
+        $(".price").each(function () {
+
+            var value = $(this).text();
+            // add only if the value is number
+            if (!isNaN(value) && value.length != 0) {
+                sum += parseFloat(value);
+            }
+        });
+
+        $('#TotalAmount').val(sum);
+        var a = $('#TotalAmount').val();
+        var b = $('#GivenAmount').val();
+        $('#ChangeAmount').val(a - b);
+
+
+    };
+    $('.price').each(function () {
+        calculateSum();
+    });
+
+    // change amount
+    $('#GivenAmount').keyup(function () {
+        var a = $('#TotalAmount').val();
+        var b = $('#GivenAmount').val();
+        $('#ChangeAmount').val(a - b);
+    });
+
 
     $('.mydatepicker').datepicker({
         format: 'mm/dd/yyyy'
     });
     //$('#Product').select2();
-
-  
 });
 
 //get products details

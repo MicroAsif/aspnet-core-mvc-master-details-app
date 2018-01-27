@@ -77,22 +77,23 @@
         </table>
     </div>
     <div class="col-md-12">
+        <br/>
         <div class="col-md-3 col-md-offset-8">
             <label asp-for="TotalAmount">Total Amount</label>
-            <input type="text" asp-for="TotalAmount" class="form-control" placeholder="Total Amount" />
+            <input type="text" asp-for="TotalAmount" class="form-control" placeholder="Total Amount" id="TotalAmount" disabled />
             @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "text-danger" })
         </div>
 
         <div class="col-md-3 col-md-offset-8">
             <label asp-for="GivenAmount">Given Amount</label>
-            <input type="text" asp-for="GivenAmount" class="form-control" placeholder="Given Amount" />
+            <input type="text" asp-for="GivenAmount" id="GivenAmount" class="form-control" placeholder="Given Amount" />
             @Html.ValidationMessageFor(model => model.GivenAmount, "", new { @class = "text-danger" })
 
         </div>
 
         <div class="col-md-3 col-md-offset-8">
             <label asp-for="ChangeAmount">Change Amount</label>
-            <input type="text" asp-for="ChangeAmount" class="form-control" placeholder="Change Amount" />
+            <input type="text" asp-for="ChangeAmount" class="form-control" id="ChangeAmount" placeholder="Change Amount"  disabled />
             @Html.ValidationMessageFor(model => model.ChangeAmount, "", new { @class = "text-danger" })
             <br />
         </div>
