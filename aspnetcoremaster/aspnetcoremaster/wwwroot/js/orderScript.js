@@ -1,7 +1,35 @@
 ﻿$(document).ready(function () {
 
+    //add button event
+    $("#btnAdd").on('click', function () {
+        var productId = $('#Product').val();
+        var productName = $("#Product option:selected").text();
+        var price = $("#Price").val();
+        var quantity = $("#Quantity").val();
+        var amount = $("#Amount").val();
 
-  
+        var row = `<tr>
+                    <td>${productId}</td>
+                    <td>${productName}</td>
+                    <td>${price}</td>
+                    <td>${quantity}</td>
+                    <td>${amount}</td>
+                    <td>
+                        <a class="btn btn-danger btnDelete">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>`;
+
+        $('#Items').append(row);
+        console.log(row);
+    });
+
+    //remove button click event
+    $('#Items').on('click', '.btnDelete', function () {
+        $(this).parents('tr').remove();
+    });
+
     //get customer
     $.ajax({
         type: "GET",
@@ -15,10 +43,12 @@
         }
     });
 
+
+    //customer details
     $("#Customer").select2({
         multiple: false
     });
-  
+
     //get categories
     $.ajax({
         type: "GET",
@@ -44,10 +74,12 @@
             });
         }
     });
+
+    ////get products by categoryId
     $('#Category').change(function () {
         console.log($("#Category option:selected").val());
         $('#Product').empty();
-        //get products by categoryId
+        
         $.ajax({
             type: "GET",
             url: "/Home/GetProducts",
@@ -79,7 +111,9 @@
         format: 'mm/dd/yyyy'
     });
     //$('#Product').select2();
-})
+
+  
+});
 
 //get products details
 function LoadProductsData(id) {
@@ -102,3 +136,6 @@ function LoadProductsData(id) {
         }
     });
 }
+
+
+

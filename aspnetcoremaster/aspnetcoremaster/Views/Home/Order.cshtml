@@ -37,37 +37,45 @@
         </div>
     </div>
 
-
-    <div class="col-md-4 col-md-offset-1">
-        <br />
-        <input type="button" value="Add Products" data-toggle="modal" data-target="#loginModal" class="button primary col-md-4 col-md-offset-1" />
+    <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-4 ">
+            <br />
+            <input type="button" value="Add Products" data-toggle="modal" data-target="#loginModal" class="button primary" />
+        </div>
     </div>
+
+
+    
     <div class="col-md-10 col-md-offset-1">
         <br />
         <br />
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <td>Product Id</td>
                     <td>Product Name</td>
-                    <td>Rate</td>
+                    <td>Price </td>
                     <td>Quantity</td>
                     <td>Amount</td>
-                    <td>Remove</td>
+                    <td></td>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="Items">
+                @*<tr>
+                    <td>10</td>
                     <td>Rice</td>
                     <td>20</td>
                     <td>2</td>
                     <td>40</td>
-                    <td><input type="button" class="btn btn-danger btn-sm" />X</td>
-                </tr>
+                    <td>
+                        <a class="btn btn-danger btnDelete" id="btnDelete">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>*@
             </tbody>
         </table>
     </div>
-
-
     <div class="col-md-12">
         <div class="col-md-3 col-md-offset-8">
             <label asp-for="TotalAmount">Total Amount</label>
@@ -89,8 +97,11 @@
             <br />
         </div>
 
-        <input type="submit" value="Save Order" class="button success col-md-2 col-md-offset-9" />
-    </div>
+        <div class="col-md-3 col-md-offset-8">
+            <input type="submit" value="Save Order" class="button success" />
+        </div> 
+       
+      </div>
 </div>
 
 <!--modal form-->
@@ -130,7 +141,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <a id="BtnAdd" class="btn btn-primary">
+                        <a id="btnAdd" class="btn btn-primary">
                             <span class="glyphicon glyphicon-plus"></span> Add
                         </a>
                         <a id="BtnClose" class="btn btn-danger" data-dismiss="modal">
