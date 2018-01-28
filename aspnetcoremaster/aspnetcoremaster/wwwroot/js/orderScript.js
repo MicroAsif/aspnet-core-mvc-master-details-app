@@ -1,5 +1,57 @@
 ﻿$(document).ready(function () {
 
+     //submit btn event
+
+    $("#btnSubmit").click(function () {
+        
+        var list = [];
+        $('#Items tr').each(function (index, ele) {
+            var orderItem = {
+                ProductId: $('.productId', this).text(),
+                Product: $('.productName', this).text(),
+                Price: parseInt($('.price', this).text()),
+                Quantity: parseInt($('.quantity', this).text()),
+                Amount: parseFloat($('.amount', this).text())
+            }
+            list.push(orderItem);
+        }); 
+        var Data = {
+            CustomerId : $("#Customer").val(),
+            InventoryCode : $("#InventoryCode").val(),
+            InventoryDate : $("#InventoryDate").val(), 
+            Status : $("#Status").val(), 
+            TotalAmount : $("#TotalAmount").val(), 
+            GivenAmount : $("#GivenAmount").val(), 
+            ChangeAmount : $("#ChangeAmount").val(),
+            InventoryItems: list
+        }
+        console.log(Data);
+        $.ajax({
+            type: 'POST',
+            url: '/Home/Order',
+            data: JSON.stringify(Data),
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                if (data.status) {
+                    alert('Successfully saved');
+                    //here we will clear the form
+                    list = [];
+                }
+                else {
+                    alert('Error');
+                }
+               
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+        
+
+    })
+
+
     //add button event
     $("#btnAdd").on('click', function () {
         var productId = $('#Product').val();
@@ -9,11 +61,11 @@
         var amount = $("#Amount").val();
 
         var row = `<tr>
-                    <td>${productId}</td>
-                    <td>${productName}</td>
-                    <td >${price}</td>
-                    <td>${quantity}</td>
-                    <td class="price">${amount}</td>
+                    <td class="productId">${productId}</td>
+                    <td class="productName">${productName}</td>
+                    <td class="price">${price}</td>
+                    <td class="quantity">${quantity}</td>
+                    <td class="amount">${amount}</td>
                     <td>
                         <a class="btn btn-danger btn-sm btnDelete">
                             <span class="glyphicon glyphicon-trash"></span>
@@ -23,7 +75,7 @@
 
         $('#Items').append(row);
         calculateSum();
-        clearValue();
+        //clearValue();
     });
 
     //remove button click event
@@ -35,7 +87,7 @@
     //get customer
     $.ajax({
         type: "GET",
-        url: "/Home/GetProducts",
+        url: "/Home/Customers",
         datatype: "Json",
         success: function (data) {
             $.each(data, function (index, value) {
@@ -111,7 +163,7 @@
     function calculateSum() {
         var sum = 0;
         // iterate through each td based on class and add the values
-        $(".price").each(function () {
+        $(".amount").each(function () {
 
             var value = $(this).text();
             // add only if the value is number
@@ -127,7 +179,7 @@
 
 
     };
-    $('.price').each(function () {
+    $('.amount').each(function () {
         calculateSum();
     });
 

@@ -9,17 +9,17 @@
     <div class="col-md-10 col-md-offset-1">
         <div class="col-md-4">
             <label asp-for="InventoryCode">Inventory Code</label>
-            <input type="text" asp-for="InventoryCode" class="form-control" placeholder="Inventory code" />
+            <input type="text" asp-for="InventoryCode" class="form-control" placeholder="Inventory code" id="InventoryCode" />
             @Html.ValidationMessageFor(model => model.InventoryCode, "", new { @class = "text-danger" })
         </div>
         <div class="col-xs-4">
             <label asp-for="CreatedDate">Inventory Date</label>
-            @Html.Editor("InventoryDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Inventory date" } })
+            @Html.Editor("InventoryDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Inventory date", id= "InventoryDate" } })
             @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
         </div>
         <div class="col-xs-4">
             <label asp-for="InventoryCode">Inventory Status</label>
-            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @placeholder = "Inventory Status" } })
+            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @placeholder = "Inventory Status", id= "Status" } })
             @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -30,10 +30,6 @@
             <label asp-for="CustomerId">Customer Phone</label>
             @Html.DropDownList("Customer", new SelectList(string.Empty, "Value", "Text"), "select customer", new { @class = "form-control", id = "Customer" })
             @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
-        </div>
-        <div class="col-xs-4">
-            <label for="CustomerName">Customer Name</label>
-            @Html.Editor("CustomerName", new { htmlAttributes = new { @class = "form-control", @id = "CustomerName", @placeholder = "Customer Name" } })
         </div>
     </div>
 
@@ -99,7 +95,7 @@
         </div>
 
         <div class="col-md-3 col-md-offset-8">
-            <input type="submit" value="Save Order" class="button success" />
+            <input type="submit" value="Save Order" class="button success" id="btnSubmit" />
         </div> 
        
       </div>

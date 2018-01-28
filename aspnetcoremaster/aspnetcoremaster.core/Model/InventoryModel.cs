@@ -11,6 +11,11 @@ namespace aspnetcoremaster.core.Model
     [Table("Inventory")]
     public class InventoryModel : BaseModel
     {
+
+        public InventoryModel()
+        {
+            InventoryItems = new List<InventoryItemModel>();
+        }
         [Required]
         [DisplayName("Order No")]
         public string InventoryCode { get; set; }
@@ -24,5 +29,7 @@ namespace aspnetcoremaster.core.Model
         [ForeignKey("CustomerModel")]
         public int CustomerId { get; set; }
         public CustomerModel CustomerModel { get; set; }
+
+        public ICollection<InventoryItemModel> InventoryItems { get; set; }
     }
 }

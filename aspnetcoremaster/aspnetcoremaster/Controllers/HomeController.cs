@@ -36,10 +36,11 @@ namespace aspnetcoremaster.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Order(InventoryModel model)
+        public JsonResult Order(InventoryModel data)
         {
-            return View();
+            bool status = false;
+            status = true;
+            return Json(new Data { status = status });
         }
         public IActionResult CustomerList()
         {
@@ -60,8 +61,8 @@ namespace aspnetcoremaster.Controllers
 
 
 
-        [HttpPost]
-        public JsonResult Customers(string name)
+      
+        public JsonResult Customers()
         {
             return Json(customerRepository.All());
         }
@@ -79,5 +80,10 @@ namespace aspnetcoremaster.Controllers
         {
             return Json(productRepository.All().Where(x => x.Id == productId));
         }
+    }
+
+    internal class Data
+    {
+        public bool status { get; set; }
     }
 }
