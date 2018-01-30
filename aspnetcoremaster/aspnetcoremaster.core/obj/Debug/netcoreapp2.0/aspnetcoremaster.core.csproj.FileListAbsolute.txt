@@ -14,7 +14,6 @@ C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\bin\Deb
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\bin\Debug\netcoreapp2.0\aspnetcoremaster.core.pdb
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.xml
-C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.csprojResolveAssemblyReference.cache
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.csproj.CoreCompileInputs.cache
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.AssemblyInfoInputs.cache
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.AssemblyInfo.cs

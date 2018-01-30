@@ -36,11 +36,17 @@ namespace aspnetcoremaster.Controllers
         }
 
         [HttpPost]
-        public JsonResult Order(InventoryModel data)
-        {
-            bool status = false;
-            status = true;
-            return Json(new Data { status = status });
+        public async Task<IActionResult> Order(InventoryModel data)
+        {   
+            bool isValidModel = await TryUpdateModelAsync(data);
+            if (isValidModel && data.CustomerId != 0)
+            {
+                inventoryRepository.Insert(data);
+                return RedirectPermanent("Index");
+            }
+            return View(data);
+
+
         }
         public IActionResult CustomerList()
         {

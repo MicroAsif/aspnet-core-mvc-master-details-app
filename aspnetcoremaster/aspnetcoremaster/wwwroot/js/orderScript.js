@@ -3,7 +3,7 @@
      //submit btn event
 
     $("#btnSubmit").click(function () {
-        
+
         var list = [];
         $('#Items tr').each(function (index, ele) {
             var orderItem = {
@@ -11,45 +11,44 @@
                 Product: $('.productName', this).text(),
                 Price: parseInt($('.price', this).text()),
                 Quantity: parseInt($('.quantity', this).text()),
-                Amount: parseFloat($('.amount', this).text())
-            }
+                TotalPrice: parseFloat($('.amount', this).text())
+            };
             list.push(orderItem);
-        }); 
-        var Data = {
-            CustomerId : $("#Customer").val(),
-            InventoryCode : $("#InventoryCode").val(),
-            InventoryDate : $("#InventoryDate").val(), 
-            Status : $("#Status").val(), 
-            TotalAmount : $("#TotalAmount").val(), 
-            GivenAmount : $("#GivenAmount").val(), 
-            ChangeAmount : $("#ChangeAmount").val(),
-            InventoryItems: list
-        }
-        console.log(Data);
+        });
+        console.log(list);
         $.ajax({
             type: 'POST',
             url: '/Home/Order',
-            data: JSON.stringify(Data),
-            contentType: 'application/json; charset=utf-8',
+            datatype: "Json",
+            async: false,
+            data: {
+                CustomerId: parseInt($("#Customer").val()),
+                InventoryCode: $("#InventoryCode").val(),
+                CreatedDate: $("#InventoryDate").val(),
+                Status: $("#Status").val(),
+                TotalAmount: parseFloat($("#TotalAmount").val()),
+                GivenAmount: parseFloat($("#GivenAmount").val()),
+                ChangeAmount: parseFloat($("#ChangeAmount").val()), 
+                InventoryItems: list
+            },
+            
             success: function (data) {
-                if (data.status) {
+                //if (data.status) {
                     alert('Successfully saved');
-                    //here we will clear the form
-                    list = [];
-                }
-                else {
-                    alert('Error');
-                }
-               
+
+                //}
+                //else {
+                //    alert('Error');
+                //}
             },
             error: function (error) {
                 console.log(error);
             }
         });
 
-        
 
-    })
+
+    });
 
 
     //add button event
@@ -109,7 +108,6 @@
         datatype: "Json",
         success: function (data) {
             $.each(data, function (index, value) {
-                console.log(value);
                 $('#Category').append('<option value="' + value.id + '">' + value.categoryName + '</option>');
             });
         }
@@ -122,7 +120,7 @@
         datatype: "Json",
         success: function (data) {
             $.each(data, function (index, value) {
-                // console.log(value);
+              
                 $('#Product').append('<option value="' + value.id + '">' + value.name + '</option>');
             });
         }
@@ -130,7 +128,6 @@
 
     ////get products by categoryId
     $('#Category').change(function () {
-        console.log($("#Category option:selected").val());
         $('#Product').empty();
         
         $.ajax({
@@ -142,7 +139,6 @@
                 $.each(data, function (index, value) {
                     $('#Product').append('<option value="' + value.id + '">' + value.name + '</option>');
                 });
-                console.log($("#Product option:selected").val());
                 LoadProductsData($("#Product option:selected").val());
             }
         });
@@ -167,7 +163,7 @@
 
             var value = $(this).text();
             // add only if the value is number
-            if (!isNaN(value) && value.length != 0) {
+            if (!isNaN(value) && value.length !== 0) {
                 sum += parseFloat(value);
             }
         });
@@ -176,9 +172,8 @@
         var a = $('#TotalAmount').val();
         var b = $('#GivenAmount').val();
         $('#ChangeAmount').val(a - b);
-
-
     };
+
     $('.amount').each(function () {
         calculateSum();
     });
@@ -209,7 +204,6 @@ function LoadProductsData(id) {
         datatype: "Json",
         data: { productId: id },
         success: function (data) {
-            console.log(data);
             $.each(data, function (index, value) {
                 $("#Price").val(value.price);
                 $("#Description").val(value.description);
