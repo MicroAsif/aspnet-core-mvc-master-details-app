@@ -20,7 +20,6 @@
             type: 'POST',
             url: '/Home/Order',
             datatype: "Json",
-            async: false,
             data: {
                 CustomerId: parseInt($("#Customer").val()),
                 InventoryCode: $("#InventoryCode").val(),
@@ -31,23 +30,13 @@
                 ChangeAmount: parseFloat($("#ChangeAmount").val()), 
                 InventoryItems: list
             },
-            
-            success: function (data) {
-                //if (data.status) {
-                    alert('Successfully saved');
-
-                //}
-                //else {
-                //    alert('Error');
-                //}
+            success: function () {
+                //alert('Successfully saved');
             },
             error: function (error) {
                 console.log(error);
             }
         });
-
-
-
     });
 
 

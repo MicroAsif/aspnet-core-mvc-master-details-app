@@ -19,3 +19,4 @@ C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Deb
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.AssemblyInfo.cs
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.dll
 C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.pdb
+C:\dev\aspnet-core-master-details\aspnetcoremaster\aspnetcoremaster.core\obj\Debug\netcoreapp2.0\aspnetcoremaster.core.csprojResolveAssemblyReference.cache

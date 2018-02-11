@@ -6,103 +6,92 @@
 
 <br /><br /><br /><br /><br /><br />
 
- <form method="post">
+ <form>
 
-                                  <div class="row">
-                                      <div class="col-md-10 col-md-offset-1">
-                                          <div class="col-md-4">
-                                              <label asp-for="InventoryCode">Inventory Code</label>
-                                              <input type="text" asp-for="InventoryCode" class="form-control" placeholder="Inventory code" id="InventoryCode" />
-                                              @Html.ValidationMessageFor(model => model.InventoryCode, "", new { @class = "text-danger" })
-                                          </div>
-                                          <div class="col-xs-4">
-                                              <label asp-for="CreatedDate">Inventory Date</label>
-                                              @Html.Editor("InventoryDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Inventory date", id = "InventoryDate" } })
-                                              @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
-                                          </div>
-                                          <div class="col-xs-4">
-                                              <label asp-for="InventoryCode">Inventory Status</label>
-                                              @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @placeholder = "Inventory Status", id = "Status" } })
-                                              @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-                                          </div>
-                                      </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-4">
+                    <label asp-for="InventoryCode">Inventory Code</label>
+                    <input type="text" asp-for="InventoryCode" class="form-control" placeholder="Inventory code" id="InventoryCode" />
+                    @Html.ValidationMessageFor(model => model.InventoryCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-4">
+                    <label asp-for="CreatedDate">Inventory Date</label>
+                    @Html.Editor("InventoryDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Inventory date", id = "InventoryDate" } })
+                    @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-4">
+                    <label asp-for="InventoryCode">Inventory Status</label>
+                    @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @placeholder = "Inventory Status", id = "Status" } })
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-                                      <div class="col-md-10 col-md-offset-1">
-                                          <br />
-                                          <div class="col-md-4">
-                                              <label asp-for="CustomerId">Customer</label>
-                                              @Html.DropDownList("Customer", new SelectList(string.Empty, "Value", "Text"), "select customer", new { @class = "form-control", id = "Customer" })
-                                              @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
-                                          </div>
-                                      </div>
+            <div class="col-md-10 col-md-offset-1">
+                <br />
+                <div class="col-md-4">
+                    <label asp-for="CustomerId">Customer</label>
+                    @Html.DropDownList("Customer", new SelectList(string.Empty, "Value", "Text"), "select customer", new { @class = "form-control", id = "Customer" })
+                    @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-                                      <div class="col-md-10 col-md-offset-1">
-                                          <div class="col-md-4 ">
-                                              <br />
-                                              <input type="button" value="Add Products" data-toggle="modal" data-target="#loginModal" class="button primary" />
-                                          </div>
-                                      </div>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-4 ">
+                    <br />
+                    <input type="button" value="Add Products" data-toggle="modal" data-target="#loginModal" class="button primary" />
+                </div>
+            </div>
 
 
 
-                                      <div class="col-md-10 col-md-offset-1">
-                                          <br />
-                                          <br />
-                                          <table class="table table-bordered">
-                                              <thead>
-                                                  <tr>
-                                                      <td>Product Id</td>
-                                                      <td>Product Name</td>
-                                                      <td>Price </td>
-                                                      <td>Quantity</td>
-                                                      <td>Amount</td>
-                                                      <td></td>
-                                                  </tr>
-                                              </thead>
-                                              <tbody id="Items">
-                                                  @*<tr>
-                            <td>10</td>
-                            <td>Rice</td>
-                            <td>20</td>
-                            <td>2</td>
-                            <td>40</td>
-                            <td>
-                                <a class="btn btn-danger btnDelete" id="btnDelete">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                </a>
-                            </td>
-                        </tr>*@
-                                              </tbody>
-                                          </table>
-                                      </div>
-                                      <div class="col-md-12">
-                                          <br />
-                                          <div class="col-md-3 col-md-offset-8">
-                                              <label asp-for="TotalAmount">Total Amount</label>
-                                              <input type="text" asp-for="TotalAmount" class="form-control" placeholder="Total Amount" id="TotalAmount" />
-                                              @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "text-danger" })
-                                          </div>
+            <div class="col-md-10 col-md-offset-1">
+                <br />
+                <br />
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Product Id</td>
+                            <td>Product Name</td>
+                            <td>Price </td>
+                            <td>Quantity</td>
+                            <td>Amount</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="Items">
+                            
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <br />
+                <div class="col-md-3 col-md-offset-8">
+                    <label asp-for="TotalAmount">Total Amount</label>
+                    <input type="text" asp-for="TotalAmount" class="form-control" placeholder="Total Amount" id="TotalAmount" />
+                    @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "text-danger" })
+                </div>
 
-                                          <div class="col-md-3 col-md-offset-8">
-                                              <label asp-for="GivenAmount">Given Amount</label>
-                                              <input type="text" asp-for="GivenAmount" id="GivenAmount" class="form-control" placeholder="Given Amount" />
-                                              @Html.ValidationMessageFor(model => model.GivenAmount, "", new { @class = "text-danger" })
+                <div class="col-md-3 col-md-offset-8">
+                    <label asp-for="GivenAmount">Given Amount</label>
+                    <input type="text" asp-for="GivenAmount" id="GivenAmount" class="form-control" placeholder="Given Amount" />
+                    @Html.ValidationMessageFor(model => model.GivenAmount, "", new { @class = "text-danger" })
 
-                                          </div>
+                </div>
 
-                                          <div class="col-md-3 col-md-offset-8">
-                                              <label asp-for="ChangeAmount">Change Amount</label>
-                                              <input type="text" asp-for="ChangeAmount" class="form-control" id="ChangeAmount" placeholder="Change Amount"  />
-                                              @Html.ValidationMessageFor(model => model.ChangeAmount, "", new { @class = "text-danger" })
-                                              <br />
-                                          </div>
+                <div class="col-md-3 col-md-offset-8">
+                    <label asp-for="ChangeAmount">Change Amount</label>
+                    <input type="text" asp-for="ChangeAmount" class="form-control" id="ChangeAmount" placeholder="Change Amount"  />
+                    @Html.ValidationMessageFor(model => model.ChangeAmount, "", new { @class = "text-danger" })
+                    <br />
+                </div>
 
-                                          <div class="col-md-3 col-md-offset-8">
-                                              <input type="submit" value="Save Order" class="button success" id="btnSubmit" />
-                                          </div>
+                <div class="col-md-3 col-md-offset-8">
+                    <input type="submit" value="Save Order" class="button success" id="btnSubmit" />
+                </div>
 
-                                      </div>
-                                  </div>
+            </div>
+        </div>
   </form>
 
 

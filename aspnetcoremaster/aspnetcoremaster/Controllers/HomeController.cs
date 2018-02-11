@@ -27,7 +27,7 @@ namespace aspnetcoremaster.Controllers
         }
         public IActionResult Index()
         {
-            return View(inventoryRepository.All());
+            return View(inventoryRepository.All().Take(7));
         }
         [HttpGet]
         public ActionResult Order()
@@ -36,17 +36,13 @@ namespace aspnetcoremaster.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Order(InventoryModel data)
-        {   
-            bool isValidModel = await TryUpdateModelAsync(data);
-            if (isValidModel && data.CustomerId != 0)
-            {
-                inventoryRepository.Insert(data);
-                return RedirectPermanent("Index");
-            }
-            return View(data);
-
-
+        public ActionResult Order(InventoryModel data)
+        {
+            if (!ModelState.IsValid && data.CustomerId == 0)
+                return View(data);
+            
+            inventoryRepository.Insert(data);
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult CustomerList()
         {
@@ -64,10 +60,6 @@ namespace aspnetcoremaster.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-
-
-      
         public JsonResult Customers()
         {
             return Json(customerRepository.All());
@@ -86,10 +78,5 @@ namespace aspnetcoremaster.Controllers
         {
             return Json(productRepository.All().Where(x => x.Id == productId));
         }
-    }
-
-    internal class Data
-    {
-        public bool status { get; set; }
     }
 }

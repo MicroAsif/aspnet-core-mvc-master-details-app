@@ -29,11 +29,11 @@ namespace aspnetcoremaster
             services.AddDbContext<AppDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             //registering repositories to service 
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<IInventoryRepository,InventoryRepository>();
-            services.AddScoped<IInventoryItemRepository, InventoryItemRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IInventoryRepository,InventoryRepository>();
+            services.AddTransient<IInventoryItemRepository, InventoryItemRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
