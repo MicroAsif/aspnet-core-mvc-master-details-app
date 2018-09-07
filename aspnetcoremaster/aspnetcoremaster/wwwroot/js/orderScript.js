@@ -30,8 +30,8 @@
                 ChangeAmount: parseFloat($("#ChangeAmount").val()), 
                 InventoryItems: list
             },
-            success: function (response) {
-                window.location.href = response.redirectToUrl;
+            success: function () {
+                //alert('Successfully saved');
             },
             error: function (error) {
                 console.log(error);

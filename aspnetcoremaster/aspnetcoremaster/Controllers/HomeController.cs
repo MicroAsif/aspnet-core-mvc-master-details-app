@@ -1,11 +1,14 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using aspnetcoremaster.Models;
 using aspnetcoremaster.core.Interface;
 using aspnetcoremaster.core.Model;
-using aspnetcoremaster.Models;
-using Microsoft.AspNetCore.Mvc;
 
-namespace aspnetcoremaster.UI.Controllers
+namespace aspnetcoremaster.Controllers
 {
     public class HomeController : Controller
     {
@@ -33,18 +36,13 @@ namespace aspnetcoremaster.UI.Controllers
         }
 
         [HttpPost]
-        public JsonResult Order(InventoryModel data)
+        public ActionResult Order(InventoryModel data)
         {
-            //doesn't redirect where it should redirect
-            if (ModelState.IsValid && data.CustomerId != 0)
-            {
-                inventoryRepository.Insert(data);
-                TempData["Msg"] = "Order Saved Successfully ";
-                return Json(new { redirectToUrl = Url.Action("Index", "Home")});
-            }
-            TempData["Msg"] = "Failed to save order !";
-            return Json(new { redirectToUrl = Url.Action("Index", "Home") });
-
+            if (!ModelState.IsValid && data.CustomerId == 0)
+                return View(data);
+            
+            inventoryRepository.Insert(data);
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult CustomerList()
         {
